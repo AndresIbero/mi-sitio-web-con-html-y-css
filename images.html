@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros | Muscle Recovery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-green-900 p-4 text-white fixed z-40 w-full">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-lg font-bold flex items-center gap-2">
+                <img class="w-12 h-12" src="./assets/heroimage.jpg" alt="logo">
+                Muscle recovery
+            </a>
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="hover:underline">Inicio</a></li>
+                <li><a href="./product.html" class="hover:underline">Nuestros productos</a></li>
+                <li><a href="./images.html" class="hover:underline">Galeria</a></li>
+                <li><a href="./about.html" class="hover:underline">Sobre nosotros</a></li>
+                <li><a href="./contact.html" class="hover:underline">Contactanos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header
+        class="relative bg-cover bg-center h-96 text-white flex items-center justify-center animate__animated animate__shakeX"
+        style="background-image: url('./assets/heroimage.jpg');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative text-center">
+            <h1 class="text-4xl font-bold">📷 Galeria 📷</h1>
+            <p class="mt-2 text-2xl">Pociones mágicas para soluciones mágicas.</p>
+        </div>
+    </header>
+
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- ... -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const gallery = document.getElementById("gallery");
+            for (let i = 1; i <= 9; i++) {
+                let imgElement = document.createElement("img");
+                imgElement.src = `./assets/products/product${i}.jpg`;
+                imgElement.alt = `Producto ${i}`;
+                imgElement.classList.add("w-full", "h-64", "object-cover", "rounded-lg", "shadow-md", "hover:scale-105", "transition", "duration-300");
+
+                let div = document.createElement("div");
+                div.appendChild(imgElement);
+                gallery.appendChild(div);
+            }
+        });
+    </script>
+
+    <!-- Botón de WhatsApp -->
+    <a href="https://wa.me/573134323042" target="_blank"
+        class="fixed bottom-4 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all w-20 h-20 flex items-center justify-center"
+        id="whatsapp-button">
+        <img src="./assets/whatsapp.png" alt="WhatsApp" class="w-10 h-10">
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white text-center py-4">
+        <p>&copy; 2025 Muscle recovery. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
