@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muscle recovery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-900 h-full">
+
+    <!-- Navbar -->
+    <nav class="bg-green-800 p-4 text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-lg font-bold flex items-center gap-2">
+                <img class="w-12 h-12" src="heroimage.jpg" alt="logo">
+                Muscle recovery
+            </a>
+            <ul class="flex space-x-4">
+                <li><a href="#servicios" class="hover:underline">Servicios</a></li>
+                <li><a href="#contacto" class="hover:underline">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-cover bg-center h-96 text-white flex items-center justify-center"
+        style="background-image: url('heroimage.jpg');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative text-center">
+            <h1 class="text-4xl font-bold">Nuestros Servicios & Productos</h1>
+            <p class="mt-2">Ofrecemos calidad y confianza en cada producto y servicio.</p>
+        </div>
+    </header>
+
+    <!-- Servicios/Productos -->
+    <section id="servicios" class="container mx-auto py-12">
+        <h2 class="text-3xl font-semibold text-center mb-8">Nuestros Productos</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Producto 1 -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <img src="https://via.placeholder.com/300" alt="Producto" class="w-full rounded">
+                <h3 class="text-xl font-bold mt-4">Producto 1</h3>
+                <p class="text-gray-600">Descripción breve del producto.</p>
+                <p class="text-green-600 font-semibold mt-2">$99.99</p>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <img src="https://via.placeholder.com/300" alt="Producto" class="w-full rounded">
+                <h3 class="text-xl font-bold mt-4">Producto 2</h3>
+                <p class="text-gray-600">Descripción breve del producto.</p>
+                <p class="text-green-600 font-semibold mt-2">$89.99</p>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <img src="https://via.placeholder.com/300" alt="Producto" class="w-full rounded">
+                <h3 class="text-xl font-bold mt-4">Producto 3</h3>
+                <p class="text-gray-600">Descripción breve del producto.</p>
+                <p class="text-green-600 font-semibold mt-2">$79.99</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="bg-gray-200 py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold mb-4">Contáctanos</h2>
+            <p class="text-gray-600">Para más información, escríbenos a <strong>correo@empresa.com</strong></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white text-center py-4">
+        <p>&copy; 2025 Mi Empresa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>
