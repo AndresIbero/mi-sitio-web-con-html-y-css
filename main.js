@@ -1,3 +1,7 @@
+document.getElementById("menu-btn").addEventListener("click", function () {
+  document.getElementById("mobile-menu").classList.toggle("hidden");
+});
+
 let whatsappButton = document.getElementById("whatsapp-button");
 
 whatsappButton.addEventListener("mouseover", () => {

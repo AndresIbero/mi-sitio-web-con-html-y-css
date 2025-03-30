@@ -7,18 +7,28 @@
     <title>Sobre Nosotros | Muscle Recovery</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 </head>
 
 <body class="bg-gray-100 text-gray-900">
 
     <!-- Navbar -->
-    <nav class="bg-green-900 p-4 text-white fixed z-40 w-full">
+    <nav class="bg-green-900 p-4 text-white fixed w-full z-50">
         <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
             <a href="#" class="text-lg font-bold flex items-center gap-2">
                 <img class="w-12 h-12" src="./assets/heroimage.jpg" alt="logo">
-                Muscle recovery
+                Muscle Recovery
             </a>
-            <ul class="flex space-x-4">
+
+            <!-- Botón de menú hamburguesa (solo en móvil) -->
+            <button id="menu-btn" class="lg:hidden text-2xl focus:outline-none">
+                ☰
+            </button>
+
+            <!-- Menú (oculto en móvil, visible en desktop) -->
+            <ul id="menu" class="hidden lg:flex space-x-4 text-lg">
                 <li><a href="index.html" class="hover:underline">Inicio</a></li>
                 <li><a href="./product.html" class="hover:underline">Nuestros productos</a></li>
                 <li><a href="./images.html" class="hover:underline">Galeria</a></li>
@@ -26,8 +36,19 @@
                 <li><a href="./contact.html" class="hover:underline">Contactanos</a></li>
             </ul>
         </div>
+
+        <!-- Menú desplegable en móvil -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-green-800 p-4">
+            <ul class="flex flex-col space-y-2 text-center">
+                <li><a href="index.html" class="hover:underline block py-2">Inicio</a></li>
+                <li><a href="./product.html" class="hover:underline block py-2">Nuestros productos</a></li>
+                <li><a href="./images.html" class="hover:underline block py-2">Galeria</a></li>
+                <li><a href="./about.html" class="hover:underline block py-2">Sobre nosotros</a></li>
+                <li><a href="./contact.html" class="hover:underline block py-2">Contactanos</a></li>
+            </ul>
+        </div>
     </nav>
-    
+
     <!-- Hero Section -->
     <header
         class="relative bg-cover bg-center h-96 text-white flex items-center justify-center animate__animated animate__shakeX"
@@ -39,124 +60,176 @@
         </div>
     </header>
 
-    <!-- Nuestra Historia -->
-    <section class="container mx-auto py-12 px-4">
-        <h2 class="text-3xl font-semibold text-center mb-6">Nuestra Historia</h2>
-        <p class="text-gray-700 text-center max-w-3xl mx-auto">
-            🏆 Nuestra Historia – Potenciando tu Rendimiento desde Hace Más de 7 Años
-            Desde hace más de 7 años, nos hemos dedicado a transformar el mundo del rendimiento deportivo con una misión
-            clara:
-            proporcionar los mejores suplementos y esteroides para atletas, culturistas y entusiastas del fitness que
-            buscan superar
-            sus límites.
+    <div class="p-4">
+        <!-- Nuestra Historia -->
+        <section class="container mx-auto py-12 px-4">
+            <h2 class="text-3xl font-semibold text-center mb-6">Nuestra Historia</h2>
+            <p class="text-gray-700 text-center max-w-3xl mx-auto">
+                🏆 Nuestra Historia – Potenciando tu Rendimiento desde Hace Más de 7 Años
+                Desde hace más de 7 años, nos hemos dedicado a transformar el mundo del rendimiento deportivo con una
+                misión
+                clara:
+                proporcionar los mejores suplementos y esteroides para atletas, culturistas y entusiastas del fitness
+                que
+                buscan superar
+                sus límites.
 
-            Lo que comenzó como una pasión por la mejora física y el alto rendimiento, se convirtió en una marca
-            reconocida por su
-            compromiso con la calidad, la seguridad y la efectividad. Nos enfocamos en ofrecer productos que realmente
-            funcionan,
-            respaldados por la ciencia y la experiencia de miles de clientes satisfechos.
+                Lo que comenzó como una pasión por la mejora física y el alto rendimiento, se convirtió en una marca
+                reconocida por su
+                compromiso con la calidad, la seguridad y la efectividad. Nos enfocamos en ofrecer productos que
+                realmente
+                funcionan,
+                respaldados por la ciencia y la experiencia de miles de clientes satisfechos.
 
-            A lo largo de los años, hemos construido una comunidad de atletas comprometidos con su evolución, brindando
-            no solo
-            suplementos de primer nivel, sino también asesoría y acompañamiento para maximizar sus resultados. Nuestra
-            trayectoria
-            nos respalda, y seguimos innovando para llevarte siempre lo mejor en suplementación deportiva y potenciación
-            del
-            rendimiento.
+                A lo largo de los años, hemos construido una comunidad de atletas comprometidos con su evolución,
+                brindando
+                no solo
+                suplementos de primer nivel, sino también asesoría y acompañamiento para maximizar sus resultados.
+                Nuestra
+                trayectoria
+                nos respalda, y seguimos innovando para llevarte siempre lo mejor en suplementación deportiva y
+                potenciación
+                del
+                rendimiento.
 
-            💪 Somos más que una marca, somos tu aliado en el camino hacia la excelencia. 🚀
-        </p>
-    </section>
+                💪 Somos más que una marca, somos tu aliado en el camino hacia la excelencia. 🚀
+            </p>
+        </section>
 
-    <!-- Misión y Valores -->
-    <section class="bg-gray-200 py-12">
-        <div class="container mx-auto grid md:grid-cols-2 gap-8 px-4">
-            <div>
-                <h3 class="text-2xl font-bold mb-3">Nuestra Misión</h3>
-                <p class="text-gray-700">Ser la marca líder en suplementación deportiva y potenciación del rendimiento
-                    físico en Bogotá y toda Colombia,
-                    reconocida por ofrecer productos de alta calidad que cumplen con los estándares más exigentes. Nos
-                    esforzamos por
-                    impulsar a los atletas, culturistas y entusiastas del fitness a alcanzar su máximo nivel, brindando
-                    soluciones efectivas
-                    y seguras para el desarrollo físico y el alto rendimiento.
-                </p>
+        <!-- Misión y Valores -->
+        <section class="bg-gray-200 py-12">
+            <div class="container mx-auto grid md:grid-cols-2 gap-8 px-4">
+                <div>
+                    <h3 class="text-2xl font-bold mb-3">Nuestra Misión</h3>
+                    <p class="text-gray-700">Ser la marca líder en suplementación deportiva y potenciación del
+                        rendimiento
+                        físico en Bogotá y toda Colombia,
+                        reconocida por ofrecer productos de alta calidad que cumplen con los estándares más exigentes.
+                        Nos
+                        esforzamos por
+                        impulsar a los atletas, culturistas y entusiastas del fitness a alcanzar su máximo nivel,
+                        brindando
+                        soluciones efectivas
+                        y seguras para el desarrollo físico y el alto rendimiento.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-3">🏆 Valores
+                        Compromiso con Bogotá y Colombia – Apoyamos el crecimiento del deporte y el fitness en nuestro
+                        país, ofreciendo
+                        suplementos de calidad que potencian el desempeño de nuestros atletas.
+                    </h3>
+                    <ul class="list-disc pl-5 text-gray-700">
+                        <li>🔬 Calidad y Seguridad Garantizadas – Nuestros productos cumplen con los estándares más
+                            altos en
+                            suplementación
+                            deportiva, asegurando su eficacia y confianza para nuestros clientes.
+                        </li>
+                        <li>💪 Superación y Disciplina – Creemos en el poder del esfuerzo y la constancia para
+                            transformar
+                            cuerpos y mentes,
+                            respaldando a quienes buscan alcanzar su mejor versión.
+                        </li>
+                        <li>🤝 Transparencia y Confianza – Actuamos con honestidad, brindando información clara y
+                            asesoría
+                            profesional para que
+                            nuestros clientes tomen decisiones informadas.
+                        </li>
+                        <li>🔥 Innovación y Evolución – Nos mantenemos a la vanguardia en la industria de suplementos,
+                            siempre buscando nuevas
+                            fórmulas y productos que marquen la diferencia en el rendimiento deportivo.
+                        </li>
+                        <li>
+                            👥 Comunidad y Apoyo Local – Fomentamos una red de atletas, entrenadores y entusiastas del
+                            fitness en Bogotá y Colombia,
+                            brindando acompañamiento y asesoría personalizada.
+                        </li>
+                        <li>💯 Resultados Comprobados – Nos enfocamos en ofrecer suplementos y esteroides que realmente
+                            funcionen, ayudando a
+                            nuestros clientes a lograr sus metas físicas y deportivas de manera efectiva y segura.
+                        </li>
+                        <li>
+                            🔝 Pasión por el Alto Rendimiento – Más que una marca, somos un aliado para quienes buscan
+                            destacarse en el mundo del
+                            fitness, el culturismo y el alto rendimiento deportivo.
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <h3 class="text-2xl font-bold mb-3">🏆 Valores
-                    Compromiso con Bogotá y Colombia – Apoyamos el crecimiento del deporte y el fitness en nuestro
-                    país, ofreciendo
-                    suplementos de calidad que potencian el desempeño de nuestros atletas.
-                </h3>
-                <ul class="list-disc pl-5 text-gray-700">
-                    <li>🔬 Calidad y Seguridad Garantizadas – Nuestros productos cumplen con los estándares más altos en
-                        suplementación
-                        deportiva, asegurando su eficacia y confianza para nuestros clientes.
-                    </li>
-                    <li>💪 Superación y Disciplina – Creemos en el poder del esfuerzo y la constancia para transformar
-                        cuerpos y mentes,
-                        respaldando a quienes buscan alcanzar su mejor versión.
-                    </li>
-                    <li>🤝 Transparencia y Confianza – Actuamos con honestidad, brindando información clara y asesoría
-                        profesional para que
-                        nuestros clientes tomen decisiones informadas.
-                    </li>
-                    <li>🔥 Innovación y Evolución – Nos mantenemos a la vanguardia en la industria de suplementos,
-                        siempre buscando nuevas
-                        fórmulas y productos que marquen la diferencia en el rendimiento deportivo.
-                    </li>
-                    <li>
-                        👥 Comunidad y Apoyo Local – Fomentamos una red de atletas, entrenadores y entusiastas del
-                        fitness en Bogotá y Colombia,
-                        brindando acompañamiento y asesoría personalizada.
-                    </li>
-                    <li>💯 Resultados Comprobados – Nos enfocamos en ofrecer suplementos y esteroides que realmente
-                        funcionen, ayudando a
-                        nuestros clientes a lograr sus metas físicas y deportivas de manera efectiva y segura.
-                    </li>
-                    <li>
-                        🔝 Pasión por el Alto Rendimiento – Más que una marca, somos un aliado para quienes buscan
-                        destacarse en el mundo del
-                        fitness, el culturismo y el alto rendimiento deportivo.
-                    </li>
-                </ul>
+        </section>
+
+        <!-- Nuestro Equipo -->
+        <section id="team" class="container mx-auto py-12 px-4">
+            <h2 class="text-3xl font-semibold text-center mb-6">Nuestro Equipo</h2>
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+                <!-- Miembro 1 -->
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./assets/team/member1.png" alt="CEO" class="w-32 h-32 mx-auto rounded-full">
+                    <h3 class="text-xl font-bold mt-4">Andres Valencia</h3>
+                    <p class="text-gray-600">Fundador & CEO</p>
+                </div>
+
+                <!-- Miembro 2 -->
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./assets/team/member3.png" alt="Nutricionista" class="w-32 h-32 mx-auto rounded-full">
+                    <h3 class="text-xl font-bold mt-4">Luis Peñaloza</h3>
+                    <p class="text-gray-600">Nutricionista Deportiva</p>
+                </div>
+
+                <!-- Miembro 3 -->
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="./assets/team/member2.png" alt="Marketing" class="w-32 h-32 mx-auto rounded-full">
+                    <h3 class="text-xl font-bold mt-4">Andres Tapias</h3>
+                    <p class="text-gray-600">Marketing & Ventas</p>
+                </div>
             </div>
+        </section>
+
+        <!-- Botón de WhatsApp -->
+        <a href="https://wa.me/573134323042" target="_blank"
+            class="fixed bottom-4 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all w-20 h-20 flex items-center justify-center"
+            id="whatsapp-button">
+            <img src="./assets/whatsapp.png" alt="WhatsApp" class="w-10 h-10">
+        </a>
+
+        <!-- Boton del carrito -->
+        <button
+            class="fixed bottom-32 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all w-20 h-20 flex items-center justify-center"
+            id="shopping-cart-button">
+            <img src="./assets/shopping-cart.png" alt="WhatsApp" class="w-10 h-10">
+        </button>
+    </div>
+
+    <!-- Carrito -->
+    <div id="cart-sidebar"
+        class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+
+        <div class="p-4 flex justify-between items-center border-b">
+            <h2 class="text-xl font-bold">Carrito de Compras</h2>
+            <button id="close-sidebar" class="text-red-600 text-2xl">&times;</button>
         </div>
-    </section>
 
-    <!-- Nuestro Equipo -->
-    <section id="team" class="container mx-auto py-12 px-4">
-        <h2 class="text-3xl font-semibold text-center mb-6">Nuestro Equipo</h2>
-        <div class="grid md:grid-cols-3 gap-6 text-center">
-            <!-- Miembro 1 -->
-            <div class="bg-white p-4 rounded-lg shadow">
-                <img src="./assets/team/member1.png" alt="CEO" class="w-32 h-32 mx-auto rounded-full">
-                <h3 class="text-xl font-bold mt-4">Andres Valencia</h3>
-                <p class="text-gray-600">Fundador & CEO</p>
-            </div>
-
-            <!-- Miembro 2 -->
-            <div class="bg-white p-4 rounded-lg shadow">
-                <img src="./assets/team/member3.png" alt="Nutricionista" class="w-32 h-32 mx-auto rounded-full">
-                <h3 class="text-xl font-bold mt-4">Luis Peñaloza</h3>
-                <p class="text-gray-600">Nutricionista Deportiva</p>
-            </div>
-
-            <!-- Miembro 3 -->
-            <div class="bg-white p-4 rounded-lg shadow">
-                <img src="./assets/team/member2.png" alt="Marketing" class="w-32 h-32 mx-auto rounded-full">
-                <h3 class="text-xl font-bold mt-4">Andres Tapias</h3>
-                <p class="text-gray-600">Marketing & Ventas</p>
-            </div>
+        <div id="cart-items-container" class="p-4 overflow-y-auto max-h-96">
+            <p id="empty-cart-msg" class="text-gray-600 text-center">Tu carrito está vacío ☹.</p>
+            <ul id="cart-items" class="space-y-2"></ul>
         </div>
-    </section>
 
-    <!-- Botón de WhatsApp -->
-    <a href="https://wa.me/573134323042" target="_blank"
-        class="fixed bottom-4 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all w-20 h-20 flex items-center justify-center"
-        id="whatsapp-button">
-        <img src="./assets/whatsapp.png" alt="WhatsApp" class="w-10 h-10">
-    </a>
+        <div id="cart-buttons" class="hidden p-4 flex flex-col items-center border-t">
+            <button id="order-whatsapp"
+                class="bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-green-700 transition-all w-full">
+                📲 Pedir por WhatsApp
+            </button>
+            <br>
+            <button id="clear-cart"
+                class="bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-700 transition-all w-full">
+                🗑 Vaciar Carrito
+            </button>
+        </div>
+    </div>
+
+    <!-- Fondo Oscuro (para cerrar el carrito) -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40">
+    </div>
 
     <!-- Footer -->
     <footer class="bg-green-600 text-white text-center py-4">
@@ -164,6 +237,7 @@
     </footer>
 
     <script src="main.js"></script>
+    <script src="shoppingCart.js"></script>
 </body>
 
 </html>

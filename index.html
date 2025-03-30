@@ -8,18 +8,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="bg-gray-100 text-gray-900 h-full">
 
     <!-- Navbar -->
-    <nav class="bg-green-900 p-4 text-white fixed z-40 w-full">
+    <nav class="bg-green-900 p-4 text-white fixed w-full z-50">
         <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
             <a href="#" class="text-lg font-bold flex items-center gap-2">
                 <img class="w-12 h-12" src="./assets/heroimage.jpg" alt="logo">
-                Muscle recovery
+                Muscle Recovery
             </a>
-            <ul class="flex space-x-4">
+
+            <!-- Botón de menú hamburguesa (solo en móvil) -->
+            <button id="menu-btn" class="lg:hidden text-2xl focus:outline-none">
+                ☰
+            </button>
+
+            <!-- Menú (oculto en móvil, visible en desktop) -->
+            <ul id="menu" class="hidden lg:flex space-x-4 text-lg">
                 <li><a href="index.html" class="hover:underline">Inicio</a></li>
                 <li><a href="./product.html" class="hover:underline">Nuestros productos</a></li>
                 <li><a href="./images.html" class="hover:underline">Galeria</a></li>
@@ -27,11 +36,22 @@
                 <li><a href="./contact.html" class="hover:underline">Contactanos</a></li>
             </ul>
         </div>
+
+        <!-- Menú desplegable en móvil -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-green-800 p-4">
+            <ul class="flex flex-col space-y-2 text-center">
+                <li><a href="index.html" class="hover:underline block py-2">Inicio</a></li>
+                <li><a href="./product.html" class="hover:underline block py-2">Nuestros productos</a></li>
+                <li><a href="./images.html" class="hover:underline block py-2">Galeria</a></li>
+                <li><a href="./about.html" class="hover:underline block py-2">Sobre nosotros</a></li>
+                <li><a href="./contact.html" class="hover:underline block py-2">Contactanos</a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Hero Section -->
     <header
-        class="relative bg-cover bg-center h-96 text-white flex items-center justify-center animate__animated animate__shakeX"
+        class="relative bg-cover bg-center h-96 text-white flex items-center justify-center animate__animated animate__shakeX animate__slow"
         style="background-image: url('./assets/heroimage.jpg');">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
         <div class="relative text-center">
@@ -40,96 +60,165 @@
         </div>
     </header>
 
-    <!-- Servicios/Productos -->
-    <section id="servicios" class="container mx-auto py-12">
-        <h2 class="text-3xl font-semibold text-center mb-8">Nuestros Productos en 🔥</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-            <!-- Producto 1 -->
-            <div
-                class="bg-white p-4 rounded-lg shadow transform transition duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-700">
-                <img src="./assets/products/product1.jpg" alt="Producto" class="w-full rounded">
-                <h3 class="text-xl font-bold mt-4">Proteína Whey – Potencia tu Recuperación y Crecimiento Muscular</h3>
-                <p class="text-gray-600">
-                    💪 Descripción: La proteína whey es el complemento ideal para quienes buscan aumentar masa muscular,
-                    mejorar la
-                    recuperación y optimizar su rendimiento en el gimnasio. Con una alta concentración de aminoácidos
-                    esenciales y de rápida
-                    absorción, es perfecta para consumir después de entrenar o como snack proteico en el día.
-                </p>
-                <p class="text-green-600 font-semibold mt-2">💰 Precio estimado en Colombia: $120,000 - $180,000 (2 lb)
-                </p>
+    <div class="p-4">
+        <!-- Servicios/Productos -->
+        <section id="servicios" class="container mx-auto py-12">
+            <h2 class="text-3xl font-semibold text-center mb-8">Nuestros Productos en 🔥</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Producto 1 -->
+                <div
+                    class="bg-white p-4 rounded-lg shadow transform transition duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-700">
+                    <img src="./assets/products/product1.jpg" alt="Producto" class="w-full rounded">
+                    <h3 class="text-xl font-bold mt-4">Proteína Whey – Potencia tu Recuperación y Crecimiento Muscular
+                    </h3>
+                    <p class="text-gray-600">
+                        💪 Descripción: La proteína whey es el complemento ideal para quienes buscan aumentar masa
+                        muscular,
+                        mejorar la
+                        recuperación y optimizar su rendimiento en el gimnasio. Con una alta concentración de
+                        aminoácidos
+                        esenciales y de rápida
+                        absorción, es perfecta para consumir después de entrenar o como snack proteico en el día.
+                    </p>
+                    <p class="text-green-600 font-semibold mt-2">💰 Precio estimado en Colombia: $120,000 - $180,000
+                        (2 lb)
+                    </p>
+                    <div class="flex justify-center">
+                        <button
+                            class="mt-6 inline-block bg-green-600 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-green-700 transition-all buy-product"
+                            data-id="1" data-name="Proteína Whey – Potencia tu Recuperación y Crecimiento Muscular"
+                            data-price="$120,000 - $180,000 (2 lb)">🛒
+                            Agregar
+                            al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div
+                    class="bg-white p-4 rounded-lg shadow transform transition duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500">
+                    <img src="./assets/products/product2.jpg" alt="Producto" class="w-full rounded">
+                    <h3 class="text-xl font-bold mt-4">Creatina Monohidratada – Más Fuerza, Más Resistencia</h3>
+                    <p class="text-gray-600">⚡ Descripción: Aumenta tu rendimiento con creatina monohidratada, el
+                        suplemento
+                        más estudiado y respaldado por la
+                        ciencia. Mejora la fuerza, acelera la recuperación muscular y potencia tu desempeño en
+                        entrenamientos de alta
+                        intensidad. Ideal para quienes buscan más energía y volumen muscular.
+                    </p>
+                    <p class="text-green-600 font-semibold mt-2">💰 Precio estimado en Colombia: $70,000 - $130,000 (300
+                        g)
+                    </p>
+                    <div class="flex justify-center">
+                        <button
+                            class="mt-6 inline-block bg-green-600 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-green-700 transition-all buy-product"
+                            data-id="2" data-name="Creatina Monohidratada – Más Fuerza, Más Resistencia"
+                            data-price="$70,000 - $130,000 (300 g)">🛒
+                            Agregar
+                            al carrito</button>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div
+                    class="bg-white p-4 rounded-lg shadow transform transition duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500">
+                    <img src="./assets/products/product3.jpg" alt="Producto" class="w-full rounded">
+                    <h3 class="text-xl font-bold mt-4">Pre-entreno – Energía Explosiva y Máximo Rendimiento</h3>
+                    <p class="text-gray-600">🔥 Descripción: Siente el poder de un pre-entreno de calidad con
+                        ingredientes
+                        como cafeína, beta-alanina y citrulina.
+                        Diseñado para darte un boost de energía, enfoque mental y resistencia muscular, asegurando
+                        entrenamientos intensos y
+                        productivos.
+                    </p>
+                    <p class="text-green-600 font-semibold mt-2">💰 Precio estimado en Colombia: $90,000 - $160,000 (30
+                        servicios)</p>
+                    <div class="flex justify-center">
+                        <button
+                            class="mt-6 inline-block bg-green-600 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-green-700 transition-all buy-product"
+                            data-id="3" data-name="Pre-entreno – Energía Explosiva y Máximo Rendimiento"
+                            data-price="$90,000 - $160,000 (30 servicios)">🛒
+                            Agregar
+                            al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Google Maps -->
+        <section id="ubicacion" class="container mx-auto py-12 text-center">
+            <h2 class="text-3xl font-semibold mb-4">Nuestra Ubicación</h2>
+            <p class="text-gray-600 mb-4">Encuéntranos fácilmente en nuestra tienda física.</p>
+
+            <div class="w-full h-96">
+                <iframe class="w-full h-full rounded-lg shadow"
+                    src="https://www.google.com/maps?q=Bogotá,Colombia&output=embed" frameborder="0" allowfullscreen>
+                </iframe>
             </div>
 
-            <!-- Producto 2 -->
-            <div
-                class="bg-white p-4 rounded-lg shadow transform transition duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500">
-                <img src="./assets/products/product2.jpg" alt="Producto" class="w-full rounded">
-                <h3 class="text-xl font-bold mt-4">Creatina Monohidratada – Más Fuerza, Más Resistencia</h3>
-                <p class="text-gray-600">⚡ Descripción: Aumenta tu rendimiento con creatina monohidratada, el suplemento
-                    más estudiado y respaldado por la
-                    ciencia. Mejora la fuerza, acelera la recuperación muscular y potencia tu desempeño en
-                    entrenamientos de alta
-                    intensidad. Ideal para quienes buscan más energía y volumen muscular.
-                </p>
-                <p class="text-green-600 font-semibold mt-2">💰 Precio estimado en Colombia: $70,000 - $130,000 (300 g)
+            <!-- Botón para abrir en Google Maps -->
+            <a href="https://www.google.com/maps?q=Bogotá,Colombia" target="_blank"
+                class="mt-6 inline-block bg-green-600 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-green-700 transition-all">
+                Ver en Google Maps
+            </a>
+        </section>
+
+
+        <!-- Contacto -->
+        <section id="contacto" class="bg-gray-200 py-12">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl font-semibold mb-4">Contáctanos</h2>
+                <p class="text-gray-600">Para más información, escríbenos a
+                    <strong>musclerecoverycorp@musclerecoverycorp.com</strong> o
+                    <strong>+57 3134323042</strong>
                 </p>
             </div>
+        </section>
 
-            <!-- Producto 3 -->
-            <div
-                class="bg-white p-4 rounded-lg shadow transform transition duration-300 hover:scale-110 hover:shadow-lg hover:shadow-green-500">
-                <img src="./assets/products/product3.jpg" alt="Producto" class="w-full rounded">
-                <h3 class="text-xl font-bold mt-4">Pre-entreno – Energía Explosiva y Máximo Rendimiento</h3>
-                <p class="text-gray-600">🔥 Descripción: Siente el poder de un pre-entreno de calidad con ingredientes
-                    como cafeína, beta-alanina y citrulina.
-                    Diseñado para darte un boost de energía, enfoque mental y resistencia muscular, asegurando
-                    entrenamientos intensos y
-                    productivos.
-                </p>
-                <p class="text-green-600 font-semibold mt-2">💰 Precio estimado en Colombia: $90,000 - $160,000 (30
-                    servicios)</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Google Maps -->
-    <section id="ubicacion" class="container mx-auto py-12 text-center">
-        <h2 class="text-3xl font-semibold mb-4">Nuestra Ubicación</h2>
-        <p class="text-gray-600 mb-4">Encuéntranos fácilmente en nuestra tienda física.</p>
-
-        <!-- Mapa de Google -->
-        <div class="w-full h-96">
-            <iframe class="w-full h-full rounded-lg shadow" frameborder="0" style="border:0"
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/place?key=TU_API_KEY&q=Bogotá,Colombia" allowfullscreen>
-            </iframe>
-        </div>
-
-        <!-- Botón para abrir en Google Maps -->
-        <a href="https://www.google.com/maps?q=Bogotá,Colombia" target="_blank"
-            class="mt-6 inline-block bg-green-600 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-green-700 transition-all">
-            Ver en Google Maps
+        <!-- Botón de WhatsApp -->
+        <a href="https://wa.me/573134323042" target="_blank"
+            class="fixed bottom-4 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all w-20 h-20 flex items-center justify-center"
+            id="whatsapp-button">
+            <img src="./assets/whatsapp.png" alt="WhatsApp" class="w-10 h-10">
         </a>
-    </section>
 
+        <!-- Boton del carrito -->
+        <button
+            class="fixed bottom-32 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all w-20 h-20 flex items-center justify-center"
+            id="shopping-cart-button">
+            <img src="./assets/shopping-cart.png" alt="WhatsApp" class="w-10 h-10">
+        </button>
+    </div>
 
-    <!-- Contacto -->
-    <section id="contacto" class="bg-gray-200 py-12">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-semibold mb-4">Contáctanos</h2>
-            <p class="text-gray-600">Para más información, escríbenos a
-                <strong>musclerecoverycorp@musclerecoverycorp.com</strong> o
-                <strong>+57 3134323042</strong>
-            </p>
+    <!-- Carrito -->
+    <div id="cart-sidebar"
+        class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+
+        <div class="p-4 flex justify-between items-center border-b">
+            <h2 class="text-xl font-bold">Carrito de Compras</h2>
+            <button id="close-sidebar" class="text-red-600 text-2xl">&times;</button>
         </div>
-    </section>
 
-    <!-- Botón de WhatsApp -->
-    <a href="https://wa.me/573134323042" target="_blank"
-        class="fixed bottom-4 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all w-20 h-20 flex items-center justify-center"
-        id="whatsapp-button">
-        <img src="./assets/whatsapp.png" alt="WhatsApp" class="w-10 h-10">
-    </a>
+        <div id="cart-items-container" class="p-4 overflow-y-auto max-h-96">
+            <p id="empty-cart-msg" class="text-gray-600 text-center">Tu carrito está vacío ☹.</p>
+            <ul id="cart-items" class="space-y-2"></ul>
+        </div>
+
+        <div id="cart-buttons" class="hidden p-4 flex flex-col items-center border-t">
+            <button id="order-whatsapp"
+                class="bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-green-700 transition-all w-full">
+                📲 Pedir por WhatsApp
+            </button>
+            <br>
+            <button id="clear-cart"
+                class="bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-700 transition-all w-full">
+                🗑 Vaciar Carrito
+            </button>
+        </div>
+    </div>
+
+    <!-- Fondo Oscuro (para cerrar el carrito) -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40">
+    </div>
 
     <!-- Footer -->
     <footer class="bg-green-600 text-white text-center py-4">
@@ -137,6 +226,7 @@
     </footer>
 
     <script src="main.js"></script>
+    <script src="shoppingCart.js"></script>
 </body>
 
 </html>

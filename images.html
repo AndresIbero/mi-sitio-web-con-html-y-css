@@ -4,26 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nosotros | Muscle Recovery</title>
+    <title>Galeria | Muscle Recovery</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 </head>
 
 <body class="bg-gray-100 text-gray-900">
 
     <!-- Navbar -->
-    <nav class="bg-green-900 p-4 text-white fixed z-40 w-full">
+    <nav class="bg-green-900 p-4 text-white fixed w-full z-50">
         <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
             <a href="#" class="text-lg font-bold flex items-center gap-2">
                 <img class="w-12 h-12" src="./assets/heroimage.jpg" alt="logo">
-                Muscle recovery
+                Muscle Recovery
             </a>
-            <ul class="flex space-x-4">
+
+            <!-- Botón de menú hamburguesa (solo en móvil) -->
+            <button id="menu-btn" class="lg:hidden text-2xl focus:outline-none">
+                ☰
+            </button>
+
+            <!-- Menú (oculto en móvil, visible en desktop) -->
+            <ul id="menu" class="hidden lg:flex space-x-4 text-lg">
                 <li><a href="index.html" class="hover:underline">Inicio</a></li>
                 <li><a href="./product.html" class="hover:underline">Nuestros productos</a></li>
                 <li><a href="./images.html" class="hover:underline">Galeria</a></li>
                 <li><a href="./about.html" class="hover:underline">Sobre nosotros</a></li>
                 <li><a href="./contact.html" class="hover:underline">Contactanos</a></li>
+            </ul>
+        </div>
+
+        <!-- Menú desplegable en móvil -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-green-800 p-4">
+            <ul class="flex flex-col space-y-2 text-center">
+                <li><a href="index.html" class="hover:underline block py-2">Inicio</a></li>
+                <li><a href="./product.html" class="hover:underline block py-2">Nuestros productos</a></li>
+                <li><a href="./images.html" class="hover:underline block py-2">Galeria</a></li>
+                <li><a href="./about.html" class="hover:underline block py-2">Sobre nosotros</a></li>
+                <li><a href="./contact.html" class="hover:underline block py-2">Contactanos</a></li>
             </ul>
         </div>
     </nav>
@@ -39,14 +60,68 @@
         </div>
     </header>
 
-    <section class="py-12 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <!-- ... -->
+    <div class="p-4">
+        <section class="py-12 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- ... -->
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
+        <!-- Botón de WhatsApp -->
+        <a href="https://wa.me/573134323042" target="_blank"
+            class="fixed bottom-4 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all w-20 h-20 flex items-center justify-center"
+            id="whatsapp-button">
+            <img src="./assets/whatsapp.png" alt="WhatsApp" class="w-10 h-10">
+        </a>
+
+        <!-- Boton del carrito -->
+        <button
+            class="fixed bottom-32 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all w-20 h-20 flex items-center justify-center"
+            id="shopping-cart-button">
+            <img src="./assets/shopping-cart.png" alt="WhatsApp" class="w-10 h-10">
+        </button>
+    </div>
+
+    <!-- Carrito -->
+    <div id="cart-sidebar"
+        class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+
+        <div class="p-4 flex justify-between items-center border-b">
+            <h2 class="text-xl font-bold">Carrito de Compras</h2>
+            <button id="close-sidebar" class="text-red-600 text-2xl">&times;</button>
+        </div>
+
+        <div id="cart-items-container" class="p-4 overflow-y-auto max-h-96">
+            <p id="empty-cart-msg" class="text-gray-600 text-center">Tu carrito está vacío ☹.</p>
+            <ul id="cart-items" class="space-y-2"></ul>
+        </div>
+
+        <div id="cart-buttons" class="hidden p-4 flex flex-col items-center border-t">
+            <button id="order-whatsapp"
+                class="bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-green-700 transition-all w-full">
+                📲 Pedir por WhatsApp
+            </button>
+            <br>
+            <button id="clear-cart"
+                class="bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-700 transition-all w-full">
+                🗑 Vaciar Carrito
+            </button>
+        </div>
+    </div>
+
+    <!-- Fondo Oscuro (para cerrar el carrito) -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40">
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white text-center py-4">
+        <p>&copy; 2025 Muscle recovery. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="shoppingCart.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const gallery = document.getElementById("gallery");
@@ -62,20 +137,6 @@
             }
         });
     </script>
-
-    <!-- Botón de WhatsApp -->
-    <a href="https://wa.me/573134323042" target="_blank"
-        class="fixed bottom-4 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all w-20 h-20 flex items-center justify-center"
-        id="whatsapp-button">
-        <img src="./assets/whatsapp.png" alt="WhatsApp" class="w-10 h-10">
-    </a>
-
-    <!-- Footer -->
-    <footer class="bg-green-600 text-white text-center py-4">
-        <p>&copy; 2025 Muscle recovery. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="main.js"></script>
 </body>
 
 </html>
