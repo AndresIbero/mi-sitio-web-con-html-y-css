@@ -149,13 +149,12 @@
             let message = document.getElementById("message").value;
 
             let whatsappNumber = "573134323042";
-            let text = `🔥 ¡Hola, equipo de Muscle Recovery! 💪  
-                Soy ${name} y quiero llevar mi rendimiento al siguiente nivel. 🚀  
-                Mi correo es: ${email}  
-                Tengo una consulta importante:  
-                📝 ${message}  
-
-                ¿Podrían ayudarme a encontrar la mejor opción para mis objetivos? 💯💊  
+            let text = `🔥 ¡Hola, equipo de Muscle Recovery! 💪\n
+                Soy ${name} y quiero llevar mi rendimiento al siguiente nivel. 🚀\n
+                📩 Mi correo: ${email}\n
+                📝 Tengo una consulta importante:\n
+                ${message}\n
+                ¿Podrían ayudarme a encontrar la mejor opción para mis objetivos? 💯💊\n
                 ¡Espero su respuesta! 🙌`;
 
             let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
